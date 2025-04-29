@@ -91,7 +91,7 @@ const activeUsers = deactivation(users);
 // , and budgetRequired (in dollars). Write a function that accepts a maximum 
 // distance and a budget and returns all destinations the user can afford and 
 // reach within that distance. If none are found, return "No destinations 
-// available under your budget and distance". (5 pts)
+// available under your budget and distance". 
 
 // Question 5
  
@@ -107,7 +107,7 @@ function affordabletickets(maximumDistance,maximumBudget){
             console.log(`No destinations available under your budget and distance`);
         }
         else{
-            
+
         }
     });
 }
