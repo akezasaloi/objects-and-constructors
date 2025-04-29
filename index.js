@@ -102,14 +102,8 @@ const destinationObjects = [{name:`Nairobi`,distance:2.5,budgetRequired:60},
 {name:`Uganda`,distance:30,budgetRequired:145},];
 
 function affordabletickets(maximumDistance,maximumBudget){
-    destinationObjects.forEach((object)=>{
-        if((object.distance>maximumDistance)&&(object.budgetRequired>maximumBudget)){
+    destinationObjects.filter((object=>(object.distance>maximumDistance)&&(object.budgetRequired>maximumBudget)));
             console.log(`No destinations available under your budget and distance`);
-        }
-        else{
-
-        }
-    });
 }
 
-affordabletickets(50,500)
+affordabletickets(5,500)
