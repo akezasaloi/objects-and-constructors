@@ -20,19 +20,6 @@ new Employee(`Danait`,`Developer`,15)];
     });
 console.log(developers);
 
-// Question 3
-// Create an object called grades where the keys are student names and 
-// the values are arrays of their scores. Write a function that calculates
-//  and prints each student's average score, and if the average is above 70
-// , print "Pass"; otherwise, print "Fail" next to their name. (5 pts)
-
-function Grades(score){
-    this.score = score;
-
-}
-
-// const grades = [new Grade(Akeza:[25,30,10,24,15])]
-
 // Question 2
 
 function productsInStock(products){
@@ -46,24 +33,30 @@ console.log(productsInStock([
 {name:`Rice`,price:800,inStock:false},
 {name:`Biscuit`,price:100,inStock:true}]));
 
+function calculateScoresAverage(grades) {
+    Object.entries(grades).forEach(([studentName, studentScores]) => {
+        let sum = 0;
+        studentScores.forEach(score => {
+            sum += score;
+        });
+        let scoresAverage = sum / studentScores.length;
+        
+        if (scoresAverage > 70) {
+            console.log(`${studentName} ${scoresAverage} Pass`);
+        } else {
+            console.log(`${studentName} ${scoresAverage} Fail`);
+        }
+    });
+}
+const grades = {
+    Akeza: [70, 80, 90, 80],
+    Saloi: [60, 60, 60, 60],
+    Mildred: [10, 6, 20, 50],
+    Birhanu: [100, 56, 72, 18],
+};
+calculateScoresAverage(grades);
 
-
-
-
-
-
-
-
-
-
-// Write a function constructor called User that takes username, email, 
-// and isActive (boolean). Create an array of users. Write a program that loops
-//  through the array and deactivates users who have not logged in recently 
-// (simulate this with a random isActive: false assignment) and print out the
-// \ usernames of active users. (5 pts)
-
-
-
+//Question 4
 
     function User(username,email,isActive){
         this.username = username;
@@ -76,40 +69,47 @@ console.log(productsInStock([
     new User(`Neema`,`neema@gmail.com`,true),
     new User(`Meron`,`meron@gmail.com`,true)];
 
-        function deactivation(deactivatedUsers){
-        return deactivatedUsers.map(user =>{
-            if(Math.random()>= 0.6){
-                user.isActive == false;
+        function deactivation(users){
+        return users.map(user =>{
+            if(Math.random() >= 0.4){
+                user.isActive = false;
+                // console.log(user.username)
             }
+            
                     return user;
             });
         }
-const allUsers = deactivation(users);
- allUsers.forEach((user) =>{
-    if(user.isActive == true){
+const activeUsers = deactivation(users);
+ activeUsers.filter((user) =>{
+    if(user.isActive){
         console.log(user.username);
     };
 });
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 // You have an array of destination objects, each with name, distance (in km)
 // , and budgetRequired (in dollars). Write a function that accepts a maximum 
 // distance and a budget and returns all destinations the user can afford and 
 // reach within that distance. If none are found, return "No destinations 
 // available under your budget and distance". (5 pts)
+
+// Question 5
+ 
+const destinationObjects = [{name:`Nairobi`,distance:2.5,budgetRequired:60},
+{name:`Kigali`,distance:60,budgetRequired:270},
+{name:`Addis Ababa`,distance:250,budgetRequired:560},
+{name:`Somalia`,distance:5200,budgetRequired:1000},
+{name:`Uganda`,distance:30,budgetRequired:145},];
+
+function affordabletickets(maximumDistance,maximumBudget){
+    destinationObjects.forEach((object)=>{
+        if((object.distance>maximumDistance)&&(object.budgetRequired>maximumBudget)){
+            console.log(`No destinations available under your budget and distance`);
+        }
+        else{
+            
+        }
+    });
+}
+
+affordabletickets(50,500)
